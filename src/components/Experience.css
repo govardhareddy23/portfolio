@@ -1,0 +1,120 @@
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--color-neon-cyan), var(--color-neon-violet));
+  box-shadow: 0 0 10px var(--color-neon-cyan);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 60px;
+  width: 100%;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 3px solid var(--color-neon-cyan);
+  box-shadow: 0 0 10px var(--color-neon-cyan);
+  transform: translateX(-50%);
+  z-index: 2;
+  transition: var(--transition-normal);
+}
+
+.timeline-item:hover .timeline-dot {
+  border-color: var(--color-neon-pink);
+  box-shadow: 0 0 15px var(--color-neon-pink);
+}
+
+.timeline-card {
+  position: relative;
+  width: 45%;
+  padding: 24px;
+  background: rgba(15, 17, 26, 0.5);
+}
+
+.timeline-item:nth-child(odd) .timeline-card {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item:nth-child(even) .timeline-card {
+  left: 55%;
+  text-align: left;
+}
+
+.timeline-date {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-neon-cyan);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.timeline-item:hover .timeline-date {
+  color: var(--color-neon-pink);
+  text-shadow: 0 0 5px rgba(254, 1, 154, 0.4);
+}
+
+.timeline-role {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--text-primary);
+}
+
+.timeline-company {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.timeline-desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 20px;
+  }
+  
+  .timeline-dot {
+    left: 20px;
+  }
+  
+  .timeline-card {
+    width: calc(100% - 40px);
+  }
+  
+  .timeline-item:nth-child(odd) .timeline-card,
+  .timeline-item:nth-child(even) .timeline-card {
+    left: 40px;
+    text-align: left;
+  }
+}
